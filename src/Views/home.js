@@ -2,7 +2,7 @@ import { LitElement } from "lit-element";
 
 class Home extends LitElement {
   render() {
-    return html` <div></div> `;
+    return html` <wc-table></wc-table> `;
   }
 }
 
