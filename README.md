@@ -1,4 +1,4 @@
-# Asignacion del proyecto.
+# Asignación del proyecto.
 
 Dentro de lo que es el proyecto se le asigna los archivos de modulos que se corresponde para poder usar LitElement
 
