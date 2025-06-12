@@ -8,28 +8,30 @@ class Form extends LitElement{
     }
     static get properties() {
         return {
-            nombre: { type: String },
-            apellido: { type: String },
-            edad: { type: Number },
+            name: { type: String },
+            lastname: { type: String },
+            age: { type: Number },
         };
     }
     save(){
         let data={
-            nombre: this.nombre,
-            apellido: this.apellido,
-            edad: this.edad
+            name: this.nombre,
+            lastname: this.apellido,
+            age: this.edad
         };
         let options ={
-            data: data,
+            detail: data,
             bubble: true,
             composed: true,
         }
+        this.dispatchEvent(new CustomEvent("savePerson",options));
+
     }
 
-    manejador(event){
+    manejador(name){
         return (event)=>{
             const value = event.target.value;
-            this[nombre]=value;
+            this[name]=value;
         };
     }
     static styles=css`
@@ -57,19 +59,19 @@ class Form extends LitElement{
     render(){
         return html`
             <form>
-                <label for="nombre">Nombre:
-                    <input @input="${this.manejador("nombre")}" .value="${this.nombre}"  />
+                <label for="name">Nombre:
+                    <input @input="${this.manejador("name")}" .value="${this.nombre}" />
                 </label>
                 
-                <label for="apellido">Apellido:
-                    <input @input="${this.manejador("apellido")}"  .value="${this.apellido}" />
+                <label for="lastname">Apellido:
+                    <input @input="${this.manejador("lastname")}"  .value="${this.apellido}"/>
                 </label>
                 
-                <label for="edad">Edad:
-                    <input @input="${this.manejador("edad")}" .value="${this.edad}"  />
+                <label for="age">Edad:
+                    <input @input="${this.manejador("age")}" .value="${this.edad}" />
                 </label>
                 
-                <button type="button">Guardar</button>
+                <button type="button" @click="${this.save}">Guardar</button>
             </form>
         
         `;

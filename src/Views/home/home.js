@@ -1,4 +1,4 @@
-import { LitElement, html} from "lit-element";
+import { LitElement, html } from "lit-element";
 import "./table.js";
 import "./form.js"
 
@@ -8,19 +8,31 @@ table
 
 */
 class Home extends LitElement {
-  constructor(){
-        super();
-        this.list=[
-            {name:"Jordan",lastname:"Guevara",age:31},
-            {name:"Carlos",lastname:"Calva",age:21},
-            {name:"Maria",lastname:"Billamar",age:11}
+  constructor() {
+    super();
+    this.list = [
+      { name: "Jordan", lastname: "Guevara", age: 31 },
+      { name: "Carlos", lastname: "Calva", age: 21 },
+      { name: "Maria", lastname: "Billamar", age: 11 }
 
-        ];
-    }
+    ];
+  }
+  static get properties() {
+  return {
+    list: { type: Array }
+  };
+}
+
+  addToList(e){
+    let newList = Object.assign([], this.list);
+    newList.push(e.detail);
+    this.list =newList;
+  }
+
   render() {
     return html`
       <h1>Tabla de registros</h1>
-      <wc-form></wc-form>
+      <wc-form @savePerson="${(e) => this.addToList(e)}"></wc-form>
       <wc-table .list="${this.list}"></wc-table> `;
   }
 }

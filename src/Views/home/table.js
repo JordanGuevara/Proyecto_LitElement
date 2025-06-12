@@ -32,30 +32,28 @@ class Table extends LitElement {
     // }
 
     render() {
-            return html`
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Edad</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        ${this.list.map((item)=>{
-                            return html`
-                             <tr>
-                                <td>${item.name}</td>
-                                <td>${item.lastname}</td>
-                                <td>${item.age}</td>
-                             </tr>
-                            `
-                        })}
-                    </tr>
-                    </tbody>
-                </table>
-                `;
-        }
+  return html`
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${this.list?.map(item => item ? html`
+          <tr>
+            <td>${item.name}</td>
+            <td>${item.lastname}</td>
+            <td>${item.age}</td>
+          </tr>
+        ` : null)}
+      </tbody>
+    </table>
+  `;
+}
+
 }
 
 window.customElements.define("wc-table", Table);
