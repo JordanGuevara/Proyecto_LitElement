@@ -2,9 +2,9 @@ import { LitElement, html, css } from "lit-element";
 class Form extends LitElement{
     constructor(){
         super();
-        this.nombre="";
-        this.apellido="";
-        this.edad="";
+        this.name="";
+        this.lastname="";
+        this.age="";
     }
     static get properties() {
         return {
@@ -15,9 +15,9 @@ class Form extends LitElement{
     }
     save(){
         let data={
-            name: this.nombre,
-            lastname: this.apellido,
-            age: this.edad
+            name: this.name,
+            lastname: this.lastname,
+            age: this.age
         };
         let options ={
             detail: data,
@@ -60,15 +60,15 @@ class Form extends LitElement{
         return html`
             <form>
                 <label for="name">Nombre:
-                    <input @input="${this.manejador("name")}" .value="${this.nombre}" />
+                    <input @input="${this.manejador("name")}" .value="${this.name}" />
                 </label>
                 
                 <label for="lastname">Apellido:
-                    <input @input="${this.manejador("lastname")}"  .value="${this.apellido}"/>
+                    <input @input="${this.manejador("lastname")}"  .value="${this.lastname}"/>
                 </label>
                 
                 <label for="age">Edad:
-                    <input @input="${this.manejador("age")}" .value="${this.edad}" />
+                    <input @input="${this.manejador("age")}" .value="${this.age}" />
                 </label>
                 
                 <button type="button" @click="${this.save}">Guardar</button>
