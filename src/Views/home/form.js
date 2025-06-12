@@ -13,11 +13,23 @@ class Form extends LitElement{
             edad: { type: Number },
         };
     }
+    save(){
+        let data={
+            nombre: this.nombre,
+            apellido: this.apellido,
+            edad: this.edad
+        };
+        let options ={
+            data: data,
+            bubble: true,
+            composed: true,
+        }
+    }
 
     manejador(event){
         return (event)=>{
             const value = event.target.value;
-            this[nombre]=this[apellido]=this[edad]=value;
+            this[nombre]=value;
         };
     }
     static styles=css`
@@ -25,6 +37,7 @@ class Form extends LitElement{
             border: solid 1px black;
             margin-bottom: 20px;
             padding: 20px;
+            border-radius: 10px 10px 10px 10px;
         }
         input{
             margin-right: 10px;
@@ -43,13 +56,19 @@ class Form extends LitElement{
     `;
     render(){
         return html`
-            <form action="">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" .value="${this.nombre}" @input="${this.manejador(nombre)}">
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" id="apellido" .value="${this.apellido}" @input="${this.manejador(apellido)}">
-                <label for="edad">Edad:</label>
-                <input type="number" name="edad" id="edad" .value="${this.edad}" @input="${this.manejador(edad)}">
+            <form>
+                <label for="nombre">Nombre:
+                    <input @input="${this.manejador("nombre")}" .value="${this.nombre}"  />
+                </label>
+                
+                <label for="apellido">Apellido:
+                    <input @input="${this.manejador("apellido")}"  .value="${this.apellido}" />
+                </label>
+                
+                <label for="edad">Edad:
+                    <input @input="${this.manejador("edad")}" .value="${this.edad}"  />
+                </label>
+                
                 <button type="button">Guardar</button>
             </form>
         
