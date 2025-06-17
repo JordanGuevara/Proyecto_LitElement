@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit-element";
 import "./table.js";
-import "./form.js"
+import "./form.js";
 
 /*
 Realizar un nuevo componente form.js que capturar los datos y pasar los datos al componente
@@ -32,6 +32,7 @@ class Home extends LitElement {
   render() {
     return html`
       <h1>Tabla de registros</h1>
+      <wc-navbar></wc-navbar>
       <wc-form @savePerson="${(e) => this.addToList(e)}"></wc-form>
       <wc-table .list="${this.list}"></wc-table> `;
   }
