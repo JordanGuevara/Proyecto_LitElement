@@ -8,4 +8,4 @@ class Page3 extends LitElement{
             `;
         }
 }
-window.customElements.define("wc-page1",Page1);
+window.customElements.define("wc-page3",Page3);

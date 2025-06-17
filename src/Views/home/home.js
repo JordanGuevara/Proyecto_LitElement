@@ -32,7 +32,7 @@ class Home extends LitElement {
   render() {
     return html`
       <h1>Tabla de registros</h1>
-      <wc-navbar></wc-navbar>
+      
       <wc-form @savePerson="${(e) => this.addToList(e)}"></wc-form>
       <wc-table .list="${this.list}"></wc-table> `;
   }
