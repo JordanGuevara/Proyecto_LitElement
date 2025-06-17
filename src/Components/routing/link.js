@@ -4,16 +4,16 @@ class Link extends LitElement{
         return {
             to: {type: String, attribute: true},
             routename: {tyepe: String, attribute: true}
-        }
+        };
     }
     _handlerClick(){
         let detail = {
             to: this.to,
             routename: this.routename
-        }
+        };
         this.dispatchEvent(new CustomEvent("go-event",{
             detail: detail,
-        }))
+        }));
         
     }
     render(){
